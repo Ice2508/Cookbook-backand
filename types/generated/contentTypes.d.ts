@@ -475,7 +475,7 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
     singularName: 'recipe';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     category: Schema.Attribute.String &
@@ -491,7 +491,7 @@ export interface ApiRecipeRecipe extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 2500;
       }>;
-    img: Schema.Attribute.Media<'images' | 'files'>;
+    img: Schema.Attribute.Media<'images' | 'files'> & Schema.Attribute.Required;
     ingr: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
